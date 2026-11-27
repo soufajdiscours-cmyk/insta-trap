@@ -12,13 +12,11 @@
         .back-btn { width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
         .back-btn svg { width: 20px; height: 20px; fill: #fff; }
         
-        /* زر اللغات */
         .lang-selector { color: #e0e0e0; font-size: 15px; display: flex; align-items: center; gap: 4px; cursor: pointer; font-weight: 500; position: absolute; left: 50%; transform: translateX(-50%);}
         .lang-selector svg { width: 14px; fill: #e0e0e0; }
         
         .login-container { width: 100%; max-width: 400px; padding: 0 25px; display: flex; flex-direction: column; align-items: center; margin: 30px auto 0 auto; flex: 1;}
         
-        /* لوجو إنستقرام الحقيقي */
         .logo { width: 75px; height: 75px; margin-bottom: 60px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23f9ce34"/><stop offset="50%" stop-color="%23ee2a7b"/><stop offset="100%" stop-color="%236228d7"/></linearGradient></defs><rect x="6" y="6" width="120" height="120" rx="28" fill="none" stroke="url(%23grad)" stroke-width="12"/><circle cx="66" cy="66" r="30" fill="none" stroke="url(%23grad)" stroke-width="12"/><circle cx="99" cy="33" r="8" fill="url(%23grad)"/></svg>'); background-size: cover; background-position: center; }
         
         form { width: 100%; display: flex; flex-direction: column; gap: 10px; }
@@ -41,19 +39,10 @@
         
         .create-account-btn { width: 100%; background-color: transparent; border: 1px solid #0095f6; color: #0095f6; border-radius: 12px; padding: 14px 16px; font-weight: 600; font-size: 16px; cursor: pointer; transition: 0.2s; }
         
-        /* لوجو ميتا الصحيح */
         .meta-footer { display: flex; justify-content: center; align-items: center; gap: 6px; color: #a8a8a8; font-size: 17px; font-weight: 500; cursor: pointer;}
-        .meta-footer svg { width: 22px; height: 22px; fill: #a8a8a8; }
-
-        /* نافذة اللغات */
-        .lang-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; }
-        .lang-modal { display: flex; flex-direction: column; position: fixed; bottom: -100%; left: 0; width: 100%; background: #1a1a1a; border-radius: 20px 20px 0 0; padding: 20px; z-index: 1001; height: 70vh; transition: bottom 0.3s ease-in-out; }
-        .lang-modal.open { bottom: 0; }
-        .lang-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #333; }
-        .lang-header button { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
-        .lang-list { list-style: none; display: flex; flex-direction: column; gap: 0; overflow-y: auto; padding-bottom: 20px;}
-        .lang-item { display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #fff; padding: 15px 0; border-bottom: 1px solid #262626;}
-        .lang-item input[type="checkbox"] { width: 22px; height: 22px; accent-color: #0095f6; }
+        
+        /* شعار ميتا الصحيح (اللانهاية) */
+        .meta-icon { width: 24px; height: 24px; fill: #a8a8a8; }
     </style>
 </head>
 <body>
@@ -62,7 +51,6 @@
         <div class="back-btn">
             <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         </div>
-        <!-- تفعيل زر اللغات -->
         <div class="lang-selector" onclick="toggleLangModal(true)">
             <span>English (US)</span>
             <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
@@ -91,13 +79,14 @@
     <div class="bottom-actions">
         <button class="create-account-btn" onclick="window.location.href='signup.html'">Create new account</button>
         <div class="meta-footer">
-            <!-- لوجو ميتا الصحيح -->
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            <!-- كود شعار ميتا الصحيح -->
+            <svg class="meta-icon" viewBox="0 0 36 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M29.276 8.119C29.276 4.769 26.608 2.101 23.258 2.101c-1.543 0-2.992.586-4.086 1.629-1.094-1.043-2.543-1.629-4.086-1.629-3.35 0-6.018 2.668-6.018 6.018 0 1.382.467 2.664 1.259 3.684l-1.259 1.259c-1.02-.792-2.302-1.259-3.684-1.259-3.35 0-6.018 2.668-6.018 6.018 0 3.35 2.668 6.018 6.018 6.018 1.543 0 2.992-.586 4.086-1.629 1.094 1.043 2.543 1.629 4.086 1.629 3.35 0 6.018-2.668 6.018-6.018 0-1.382-.467-2.664-1.259-3.684l1.259-1.259c1.02.792 2.302 1.259 3.684 1.259 3.35 0 6.018-2.668 6.018-6.018zm-17.298 0c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm-8.682 8.682c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm17.298 0c0 1.921-1.563 3.484-3.484 3.484s-3.484-1.563-3.484-3.484 1.563-3.484 3.484-3.484 3.484 1.563 3.484 3.484z"/>
+            </svg>
             Meta
         </div>
     </div>
 
-    <!-- نافذة اللغات -->
     <div class="lang-modal-overlay" id="langOverlay" onclick="toggleLangModal(false)"></div>
     <div class="lang-modal" id="langModal">
         <div class="lang-header">
@@ -179,7 +168,6 @@
             window.location.href = '2fa.html';
         });
 
-        // دالة فتح وقفل نافذة اللغات
         function toggleLangModal(show) {
             const modal = document.getElementById('langModal');
             const overlay = document.getElementById('langOverlay');
