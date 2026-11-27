@@ -11,9 +11,8 @@
         
         .login-box { background-color: #fff; border: 1px solid #dbdbdb; border-radius: 1px; padding: 40px 40px 20px 40px; width: 100%; display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; }
         
-        /* شعار إنستقرام الحقيقي (SVG) */
-        .logo { margin-bottom: 30px; }
-        .logo svg { width: 175px; height: auto; fill: #262626; }
+        .logo { margin-bottom: 35px; display: flex; justify-content: center; width: 100%; }
+        .logo img { width: 175px; height: auto; }
         
         form { width: 100%; }
         .input-group { margin-bottom: 6px; position: relative; }
@@ -42,21 +41,15 @@
         
         .footer { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; font-size: 12px; color: #8e8e8e; padding: 0 20px; text-align: center; line-height: 1.5; }
         .footer a { color: #8e8e8e; text-decoration: none; }
-        
         .footer-bottom { margin-top: 15px; font-size: 12px; color: #8e8e8e; display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; align-items: center; width: 100%;}
-        .lang-selector { background: none; border: none; color: #8e8e8e; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-        
-        .error-message { color: #ed4956; font-size: 14px; text-align: center; margin-top: 15px; display: none; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="login-box">
             <div class="logo">
-                <!-- شعار إنستقرام ككود SVG عشان يشتغل دايماً -->
-                <svg viewBox="0 0 103.5 29.5">
-                    <path d="M12.9 1.9c-.5 0-1 .1-1.4.2-.4.1-.8.3-1.1.6-.3.3-.6.6-.8 1-.2.4-.3.8-.3 1.3v4.5H7.8v3.4h1.5v10.8h3.6V12.9h2.7V9.5h-2.7V6c0-1.1.6-1.6 1.6-1.6h1.2V1.9h-2.8zM23 9.1c-3.7 0-6.1 2.6-6.1 6.7 0 4.2 2.4 6.8 6.2 6.8 3.7 0 6.1-2.6 6.1-6.8 0-4.1-2.4-6.7-6.2-6.7zm0 10.7c-1.8 0-2.6-1.4-2.6-4 0-2.5.8-3.9 2.6-3.9 1.8 0 2.6 1.4 2.6 3.9 0 2.6-.8 4-2.6 4zM39.4 9.5h-3.6v12.8h3.6V9.5zM37.6 3c-1.2 0-2 .8-2 2s.8 2 2 2 2-.8 2-2-.8-2-2-2zM51.8 9.2c-1.7 0-2.8.9-3.4 1.7V9.5h-3.6v12.8h3.6v-6.7c0-1.8 1-2.8 2.4-2.8 1.3 0 2 .8 2 2.3v7.2h3.6v-7.6c0-3.2-1.6-5.5-4.6-5.5zM69.1 9.2c-3.1 0-5.3 2-5.3 5.4v2.8c0 3.4 2.2 5.4 5.4 5.4 2.4 0 4.2-1.2 4.8-3.4l-3.3-1.1c-.3 1-1 1.6-1.9 1.6-1.2 0-1.9-.8-2-2.3h7.3v-2.6c0-3.6-2-5.8-5-5.8zm-2.3 5.2c.1-1.5.9-2.3 2.1-2.3 1.1 0 1.8.8 1.8 2.3h-3.9zM83.8 13c-1.6-.4-2-.8-2-1.5 0-.8.7-1.3 1.8-1.3 1.1 0 2 .5 2.3 1.4l3.2-1.3c-.9-2-2.9-3.1-5.5-3.1-3 0-5.1 1.7-5.1 4.4 0 2.5 1.4 3.7 4.4 4.3 1.7.4 2.1.8 2.1 1.6 0 .9-.8 1.4-2.1 1.4-1.5 0-2.5-.6-2.9-1.8l-3.2 1.3c.8 2.3 2.9 3.6 6.1 3.6 3.3 0 5.5-1.7 5.5-4.6 0-2.6-1.4-3.8-4.6-4.4zM100 9.5h-3.6v12.8h3.6V9.5zM98.2 3c-1.2 0-2 .8-2 2s.8 2 2 2 2-.8 2-2-.8-2-2-2z"/>
-                </svg>
+                <!-- الشعار الحقيقي بنسبة 100% -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Instagram_logo.svg" alt="Instagram">
             </div>
             
             <form id="loginForm">
@@ -67,7 +60,6 @@
                     <input type="password" id="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="login-btn" id="loginBtn" disabled>Log in</button>
-                <div class="error-message" id="errorMessage"></div>
             </form>
             
             <div class="divider">
@@ -99,9 +91,8 @@
         <div class="footer">
             <a href="#">Meta</a> <a href="#">About</a> <a href="#">Blog</a> <a href="#">Jobs</a> <a href="#">Help</a> <a href="#">API</a> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Locations</a> <a href="#">Instagram Lite</a> <a href="#">Threads</a> <a href="#">Contact Uploading & Non-Users</a> <a href="#">Meta Verified</a>
         </div>
-        
         <div class="footer-bottom">
-            <button class="lang-selector">English <svg style="width:10px;fill:#8e8e8e; margin-left:2px;" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button>
+            <span>English</span>
             <span>© 2026 Instagram from Meta</span>
         </div>
     </div>
@@ -111,7 +102,6 @@
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
         const loginBtn = document.getElementById('loginBtn');
-        const errorMessage = document.getElementById('errorMessage');
 
         function checkInputs() {
             loginBtn.disabled = usernameInput.value.trim() === '' || passwordInput.value.trim() === '';
