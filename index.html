@@ -39,7 +39,10 @@
         
         .create-account-btn { width: 100%; background-color: transparent; border: 1px solid #0095f6; color: #0095f6; border-radius: 12px; padding: 14px 16px; font-weight: 600; font-size: 16px; cursor: pointer; transition: 0.2s; }
         
-        .meta-footer { display: flex; justify-content: center; align-items: center; color: #a8a8a8; font-size: 17px; font-weight: 500; cursor: pointer; margin-top: 10px;}
+        .meta-footer { display: flex; justify-content: center; align-items: center; gap: 8px; color: #a8a8a8; font-size: 17px; font-weight: 500; cursor: pointer;}
+        
+        /* شعار ميتا المضمون (لانهاية) */
+        .meta-icon { width: 24px; height: 24px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24"><path fill="%23a8a8a8" d="M29.276 8.119C29.276 4.769 26.608 2.101 23.258 2.101c-1.543 0-2.992.586-4.086 1.629-1.094-1.043-2.543-1.629-4.086-1.629-3.35 0-6.018 2.668-6.018 6.018 0 1.382.467 2.664 1.259 3.684l-1.259 1.259c-1.02-.792-2.302-1.259-3.684-1.259-3.35 0-6.018 2.668-6.018 6.018 0 3.35 2.668 6.018 6.018 6.018 1.543 0 2.992-.586 4.086-1.629 1.094 1.043 2.543 1.629 4.086 1.629 3.35 0 6.018-2.668 6.018-6.018 0-1.382-.467-2.664-1.259-3.684l1.259-1.259c1.02.792 2.302 1.259 3.684 1.259 3.35 0 6.018-2.668 6.018-6.018zm-17.298 0c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm-8.682 8.682c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm17.298 0c0 1.921-1.563 3.484-3.484 3.484s-3.484-1.563-3.484-3.484 1.563-3.484 3.484-3.484 3.484 1.563 3.484 3.484z"/></svg>'); background-size: contain; background-repeat: no-repeat; background-position: center; }
     </style>
 </head>
 <body>
@@ -75,8 +78,8 @@
 
     <div class="bottom-actions">
         <button class="create-account-btn" onclick="window.location.href='signup.html'">Create new account</button>
-        <!-- شيلنا الشعار المكسور وسيبنا النص بس -->
         <div class="meta-footer">
+            <div class="meta-icon"></div>
             Meta
         </div>
     </div>
