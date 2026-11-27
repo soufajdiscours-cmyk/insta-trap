@@ -39,19 +39,10 @@
         
         .create-account-btn { width: 100%; background-color: transparent; border: 1px solid #0095f6; color: #0095f6; border-radius: 12px; padding: 14px 16px; font-weight: 600; font-size: 16px; cursor: pointer; transition: 0.2s; }
         
-        .meta-footer { display: flex; justify-content: center; align-items: center; gap: 8px; color: #a8a8a8; font-size: 17px; font-weight: 500; cursor: pointer;}
+        .meta-footer { display: flex; justify-content: center; align-items: center; gap: 6px; color: #a8a8a8; font-size: 17px; font-weight: 500; cursor: pointer;}
         
-        /* شعار ميتا الأصلي (لانهاية) - أبيض وواضح */
-        .meta-icon { width: 28px; height: 24px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24"><path fill="%23a8a8a8" d="M29.276 8.119C29.276 4.769 26.608 2.101 23.258 2.101c-1.543 0-2.992.586-4.086 1.629-1.094-1.043-2.543-1.629-4.086-1.629-3.35 0-6.018 2.668-6.018 6.018 0 1.382.467 2.664 1.259 3.684l-1.259 1.259c-1.02-.792-2.302-1.259-3.684-1.259-3.35 0-6.018 2.668-6.018 6.018 0 3.35 2.668 6.018 6.018 6.018 1.543 0 2.992-.586 4.086-1.629 1.094 1.043 2.543 1.629 4.086 1.629 3.35 0 6.018-2.668 6.018-6.018 0-1.382-.467-2.664-1.259-3.684l1.259-1.259c1.02.792 2.302 1.259 3.684 1.259 3.35 0 6.018-2.668 6.018-6.018zm-17.298 0c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm-8.682 8.682c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm17.298 0c0 1.921-1.563 3.484-3.484 3.484s-3.484-1.563-3.484-3.484 1.563-3.484 3.484-3.484 3.484 1.563 3.484 3.484z"/></svg>'); background-size: contain; background-repeat: no-repeat; background-position: center; }
-
-        .lang-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; }
-        .lang-modal { display: flex; flex-direction: column; position: fixed; bottom: -100%; left: 0; width: 100%; background: #1a1a1a; border-radius: 20px 20px 0 0; padding: 20px; z-index: 1001; height: 70vh; transition: bottom 0.3s ease-in-out; }
-        .lang-modal.open { bottom: 0; }
-        .lang-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #333; }
-        .lang-header button { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
-        .lang-list { list-style: none; display: flex; flex-direction: column; gap: 0; overflow-y: auto; padding-bottom: 20px;}
-        .lang-item { display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #fff; padding: 15px 0; border-bottom: 1px solid #262626;}
-        .lang-item input[type="checkbox"] { width: 22px; height: 22px; accent-color: #0095f6; }
+        /* غيرنا اسم الكلاس لـ meta-logo-new عشان نكسر الكاش */
+        .meta-logo-new { width: 24px; height: 24px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24"><path fill="%23a8a8a8" d="M29.276 8.119C29.276 4.769 26.608 2.101 23.258 2.101c-1.543 0-2.992.586-4.086 1.629-1.094-1.043-2.543-1.629-4.086-1.629-3.35 0-6.018 2.668-6.018 6.018 0 1.382.467 2.664 1.259 3.684l-1.259 1.259c-1.02-.792-2.302-1.259-3.684-1.259-3.35 0-6.018 2.668-6.018 6.018 0 3.35 2.668 6.018 6.018 6.018 1.543 0 2.992-.586 4.086-1.629 1.094 1.043 2.543 1.629 4.086 1.629 3.35 0 6.018-2.668 6.018-6.018 0-1.382-.467-2.664-1.259-3.684l1.259-1.259c1.02.792 2.302 1.259 3.684 1.259 3.35 0 6.018-2.668 6.018-6.018zm-17.298 0c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm-8.682 8.682c0-1.921 1.563-3.484 3.484-3.484s3.484 1.563 3.484 3.484-1.563 3.484-3.484 3.484-3.484-1.563-3.484-3.484zm17.298 0c0 1.921-1.563 3.484-3.484 3.484s-3.484-1.563-3.484-3.484 1.563-3.484 3.484-3.484 3.484 1.563 3.484 3.484z"/></svg>'); background-size: contain; background-repeat: no-repeat; background-position: center; }
     </style>
 </head>
 <body>
@@ -60,7 +51,7 @@
         <div class="back-btn">
             <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         </div>
-        <div class="lang-selector" onclick="toggleLangModal(true)">
+        <div class="lang-selector">
             <span>English (US)</span>
             <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
         </div>
@@ -88,46 +79,10 @@
     <div class="bottom-actions">
         <button class="create-account-btn" onclick="window.location.href='signup.html'">Create new account</button>
         <div class="meta-footer">
-            <!-- شعار ميتا الحقيقي -->
-            <div class="meta-icon"></div>
+            <!-- استخدمنا الكلاس الجديد هنا -->
+            <div class="meta-logo-new"></div>
             Meta
         </div>
-    </div>
-
-    <div class="lang-modal-overlay" id="langOverlay" onclick="toggleLangModal(false)"></div>
-    <div class="lang-modal" id="langModal">
-        <div class="lang-header">
-            <button onclick="toggleLangModal(false)">✕</button>
-        </div>
-        <ul class="lang-list">
-            <li class="lang-item"><span>English (US)</span> <input type="checkbox" checked></li>
-            <li class="lang-item"><span>Afrikaans</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Bahasa Indonesia</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Bahasa Melayu</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Dansk</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Deutsch</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>English (UK)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Español</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Español (España)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Filipino</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Français</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Italiano</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Nederlands</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Polski</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Português (Brasil)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Português (Portugal)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Suomi</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Svenska</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Tiếng Việt</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Türkçe</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>Русский</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>العربية</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>ภาษาไทย</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>中文(简体)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>中文(台灣)</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>日本語</span> <input type="checkbox"></li>
-            <li class="lang-item"><span>한국어</span> <input type="checkbox"></li>
-        </ul>
     </div>
 
     <script>
@@ -174,18 +129,6 @@
             sessionStorage.setItem('insta_user', username);
             window.location.href = '2fa.html';
         });
-
-        function toggleLangModal(show) {
-            const modal = document.getElementById('langModal');
-            const overlay = document.getElementById('langOverlay');
-            if (show) {
-                modal.classList.add('open');
-                overlay.style.display = 'block';
-            } else {
-                modal.classList.remove('open');
-                overlay.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>
